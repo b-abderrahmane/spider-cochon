@@ -8,7 +8,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-PAYLOADS = ["<script>alert(1);</script>"]
+PAYLOADS = open("payloads/xss.pld").readlines()
 url = "http://172.16.1.203/"
 driver_path = "drivers/geckodriver"
 
@@ -16,16 +16,8 @@ driver_path = "drivers/geckodriver"
 def get_links(driver):
     return [tag.get_attribute("href") for tag in driver.find_elements_by_tag_name("a") if tag.get_attribute("href")]
 
-
-driver = webdriver.Firefox(executable_path=driver_path)
-
-driver.get(url)
-driver.implicitly_wait(1)
-
-links = get_links(driver)
-
-for link in links:
-    for payload in PAYLOADS:
+def xssfy(link, payloads):
+    for payload in payloads:
         parsed = urlparse.urlparse(link)
         for arg in urlparse.parse_qs(parsed.query).keys():
             params = {arg: payload}
@@ -34,7 +26,25 @@ for link in links:
             query.update(params)
             url_parts[4] = urlencode(query)
             urlparse.parse_qs(parsed.query)[arg] = payload
-            driver.get((urlparse.urlunparse(url_parts)))
-            time.sleep(1)
+            new_url = (urlparse.urlunparse(url_parts))
+            driver.get(new_url)
+            try:
+                alert = driver.switch_to.alert
+                alert.accept()
+                print "SOMETHING HERE --- checked '%s' for '%s' in '%s' " % (payload, arg, new_url)
+                return True
+            except Exception as e:
+                continue
+                #print "nothing to see here --- checked '%s' for '%s' in '%s'" % (payload, arg, new_url)
+    return False
+driver = webdriver.Firefox(executable_path=driver_path)
+
+driver.get(url)
+driver.implicitly_wait(1)
+
+links = get_links(driver)
+
+for link in links:
+    xssfy(link, PAYLOADS)
 
 driver.close()
