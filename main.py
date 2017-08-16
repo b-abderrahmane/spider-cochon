@@ -9,14 +9,17 @@ from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 PAYLOADS = ["<script>alert(1);</script>"]
+url = "http://172.16.1.203/"
+driver_path = "drivers/geckodriver"
+
 
 def get_links(driver):
     return [tag.get_attribute("href") for tag in driver.find_elements_by_tag_name("a") if tag.get_attribute("href")]
 
 
-driver = webdriver.Firefox(executable_path='drivers/geckodriver')
+driver = webdriver.Firefox(executable_path=driver_path)
 
-driver.get("http://172.16.1.203/")
+driver.get(url)
 driver.implicitly_wait(1)
 
 links = get_links(driver)
@@ -35,7 +38,3 @@ for link in links:
             time.sleep(1)
 
 driver.close()
-
-url = 'http://foo.appspot.com/abc?def=ghi'
-
-print ['def']

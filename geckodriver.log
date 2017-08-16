@@ -76,3 +76,11 @@ JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NO
 JavaScript error: http://172.16.1.203/xss/example1.php?name=%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E, line 49: NS_ERROR_UNEXPECTED: 
 JavaScript error: http://172.16.1.203/xss/example6.php?name=%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E, line 49: SyntaxError: unterminated string literal
 1502887034034	Marionette	INFO	Ceased listening
+1502887213096	geckodriver	INFO	geckodriver 0.18.0
+1502887213099	geckodriver	INFO	Listening on 127.0.0.1:58805
+1502887214215	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502887215750	Marionette	INFO	Listening on port 46701
+1502887215826	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: http://172.16.1.203/xss/example1.php?name=%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E, line 49: NS_ERROR_UNEXPECTED: 
+1502887222867	Marionette	INFO	Ceased listening
