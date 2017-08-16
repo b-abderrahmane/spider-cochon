@@ -45,6 +45,7 @@ driver.implicitly_wait(1)
 links = get_links(driver)
 
 for link in links:
-    xssfy(link, PAYLOADS)
+    if "xss" in link:
+        xssfy(link, PAYLOADS)
 
 driver.close()
