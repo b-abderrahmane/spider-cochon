@@ -10030,3 +10030,78 @@ JavaScript error: http://172.16.1.203/xss/example6.php?name=%3C/script%3E%3Csvg%
 1502915371393	Marionette	DEBUG	Received DOM event "beforeunload" for "http://172.16.1.203/xss/example7.php?name=%3Csvg%20onload=alert(1)%3E"
 1502915371499	Marionette	DEBUG	Received DOM event "pagehide" for "http://172.16.1.203/xss/example7.php?name=%3Csvg%20onload=alert(1)%3E"
 1502915371499	Marionette	DEBUG	Received DOM event "unload" for "http://172.16.1.203/xss/example7.php?name=%3Csvg%20onload=alert(1)%3E"
+1502950941923	geckodriver	INFO	geckodriver 0.18.0
+1502950941926	geckodriver	INFO	Listening on 127.0.0.1:42046
+1502950943037	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502950944609	Marionette	INFO	Listening on port 43448
+1502950944655	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3CBODY%20ONLOAD=alert(%27hellox%20worldss%27)%3E, line 1: SyntaxError: unterminated string literal
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cinput%20onfocus=write(XSS)%20autofocus%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cinput%20onblur=write(XSS)%20autofocus%3E%3Cinput%20autofocus%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3C!--%3Cimg%20src=%22--%3E%3Cimg%20src=x%20onerror=alert(XSS)//%22%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cstyle%3E%3Cimg%20src=%22%3C/style%3E%3Cimg%20src=x%20onerror=alert(XSS)//%22%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+1502951083714	geckodriver	INFO	geckodriver 0.18.0
+1502951083716	geckodriver	INFO	Listening on 127.0.0.1:47151
+1502951084826	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502951086378	Marionette	INFO	Listening on port 40705
+1502951086439	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3CBODY%20ONLOAD=alert(%27hellox%20worldss%27)%3E, line 1: SyntaxError: unterminated string literal
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cinput%20onfocus=write(XSS)%20autofocus%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cinput%20onblur=write(XSS)%20autofocus%3E%3Cinput%20autofocus%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3C!--%3Cimg%20src=%22--%3E%3Cimg%20src=x%20onerror=alert(XSS)//%22%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: http://172.16.1.203/xss/example4.php?name=%3Cstyle%3E%3Cimg%20src=%22%3C/style%3E%3Cimg%20src=x%20onerror=alert(XSS)//%22%3E, line 1: ReferenceError: XSS is not defined
+JavaScript error: resource://gre/components/nsPrompter.js, line 424: NS_ERROR_NOT_AVAILABLE: prompt aborted by user
+JavaScript error: data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K, line 1: NS_ERROR_UNEXPECTED: 
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1502951885648	geckodriver	INFO	geckodriver 0.18.0
+1502951885650	geckodriver	INFO	Listening on 127.0.0.1:58295
+1502951886768	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502951888261	Marionette	INFO	Listening on port 42972
+1502951888302	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://172.16.1.203/xss/example6.php?name=%3Cscript%3Ealert(123)%3C/script%3E, line 49: SyntaxError: unterminated string literal
+JavaScript error: http://172.16.1.203/xss/example6.php?name=%3Cscript%3Ealert(%22hellox%20worldss%22);%3C/script%3E, line 49: SyntaxError: missing ; before statement
+JavaScript error: http://172.16.1.203/xss/example6.php?name=javascript:alert(%22hellox%20worldss%22), line 49: SyntaxError: missing ; before statement
+JavaScript error: http://172.16.1.203/xss/example6.php?name=%3Cimg%20src=%22javascript:alert(%27XSS%27);%22%3E, line 49: SyntaxError: missing ; before statement
+JavaScript error: http://172.16.1.203/xss/example6.php?name=%3C%22%27;alert(String.fromCharCode(88,83,83))//\%27;alert(String.fromCharCode(88,83,83))//%22;alert(String.fromCharCode(88,83,83))//\%22;alert(String.fromCharCode(88,83,83))//--%3E%3C/SCRIPT%3E%22%3E%27%3E%3CSCRIPT%3Ealert(String.fromCharCode(88,83,83))%3C/SCRIPT%3E, line 49: SyntaxError: unterminated string literal
+JavaScript error: http://172.16.1.203/xss/example7.php?name=%3Cimg%20src=%22javascript:alert(%27XSS%27);%22%3E, line 50: SyntaxError: missing ; before statement
+1502952129986	geckodriver	INFO	geckodriver 0.18.0
+1502952129988	geckodriver	INFO	Listening on 127.0.0.1:36465
+1502952131082	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502952132643	Marionette	INFO	Listening on port 38365
+1502952132694	Marionette	WARN	TLS certificate errors will be ignored for this session
+1502952140664	Marionette	INFO	Ceased listening
+1502952227888	geckodriver	INFO	geckodriver 0.18.0
+1502952227890	geckodriver	INFO	Listening on 127.0.0.1:33485
+1502952228995	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502952230551	Marionette	INFO	Listening on port 38544
+1502952230610	Marionette	WARN	TLS certificate errors will be ignored for this session
+1502952264944	geckodriver	INFO	geckodriver 0.18.0
+1502952264947	geckodriver	INFO	Listening on 127.0.0.1:58288
+1502952266038	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502952267590	Marionette	INFO	Listening on port 36399
+1502952267650	Marionette	WARN	TLS certificate errors will be ignored for this session
+1502952946999	geckodriver	INFO	geckodriver 0.18.0
+1502952947001	geckodriver	INFO	Listening on 127.0.0.1:42316
+1502952948127	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502952949822	Marionette	INFO	Listening on port 39915
+1502952949862	Marionette	WARN	TLS certificate errors will be ignored for this session
+1502953008563	geckodriver	INFO	geckodriver 0.18.0
+1502953008566	geckodriver	INFO	Listening on 127.0.0.1:54194
+1502953009695	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1502953011316	Marionette	INFO	Listening on port 42359
+1502953011407	Marionette	WARN	TLS certificate errors will be ignored for this session

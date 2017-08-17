@@ -14,8 +14,13 @@ url = "http://172.16.1.203/"
 driver_path = "drivers/geckodriver"
 
 
+def get_forms(driver):
+    return driver.find_elements_by_tag_name("form")
+
+
 def get_links(driver):
     return [tag.get_attribute("href") for tag in driver.find_elements_by_tag_name("a") if tag.get_attribute("href")]
+
 
 def format_url_args(args_dict):
     url_args = ""
@@ -23,9 +28,13 @@ def format_url_args(args_dict):
         url_args += "%s=%s&" % (key, val.decode("utf-8"))
     return url_args[:-1]
 
-def xssfy(link, payloads):
+def fuzz_name_anchros():
+    pass
+
+def fuzz_get_params(link, payloads):
     for payload in payloads:
         parsed = urlparse.urlparse(link)
+        print link
         for arg in urlparse.parse_qs(parsed.query).keys():
             params = {arg: payload}
             url_parts = list(urlparse.urlparse(link))
@@ -35,6 +44,7 @@ def xssfy(link, payloads):
             urlparse.parse_qs(parsed.query)[arg] = payload
             new_url = (urlparse.urlunparse(url_parts))
             driver.get(new_url)
+            time.sleep(0.5)
             try:
                 alert = driver.switch_to.alert
                 alert.accept()
@@ -44,20 +54,30 @@ def xssfy(link, payloads):
                 continue
                 #print "nothing to see here --- checked '%s' for '%s' in '%s'" % (payload, arg, new_url)
     return False
-driver = webdriver.Firefox(executable_path=driver_path)
 
-driver.get(url)
-driver.implicitly_wait(1)
+if __name__ == '__main__':
 
-links = get_links(driver)
+    driver = webdriver.Firefox(executable_path=driver_path)
 
-for link in links:
+    driver.get(url)
+    driver.implicitly_wait(1)
 
-    if "xss" in link:
-        start = time.time()
-        xssfy(link, PAYLOADS)
-        end = time.time()
-        print(end - start)
+    links = get_links(driver)
+
+    for link in links:
+
         print link
+        driver.get(link)
+        forms = get_forms(driver)
+        if forms:
+            print link, forms
 
-driver.close()
+        """
+        if "xss" in link:
+            start = time.time()
+            fuzz_get_params(link, PAYLOADS)
+            end = time.time()
+            print(end - start)
+            print link
+        """
+    driver.close()
