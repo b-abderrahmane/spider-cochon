@@ -1,5 +1,6 @@
 import urlparse
 import time
+import timeit
 
 from urllib import urlencode
 from selenium import webdriver
@@ -16,6 +17,12 @@ driver_path = "drivers/geckodriver"
 def get_links(driver):
     return [tag.get_attribute("href") for tag in driver.find_elements_by_tag_name("a") if tag.get_attribute("href")]
 
+def format_url_args(args_dict):
+    url_args = ""
+    for key, val in args_dict.iteritems():
+        url_args += "%s=%s&" % (key, val.decode("utf-8"))
+    return url_args[:-1]
+
 def xssfy(link, payloads):
     for payload in payloads:
         parsed = urlparse.urlparse(link)
@@ -24,7 +31,7 @@ def xssfy(link, payloads):
             url_parts = list(urlparse.urlparse(link))
             query = dict(urlparse.parse_qsl(url_parts[4]))
             query.update(params)
-            url_parts[4] = urlencode(query)
+            url_parts[4] = format_url_args(query)
             urlparse.parse_qs(parsed.query)[arg] = payload
             new_url = (urlparse.urlunparse(url_parts))
             driver.get(new_url)
@@ -45,7 +52,12 @@ driver.implicitly_wait(1)
 links = get_links(driver)
 
 for link in links:
+
     if "xss" in link:
+        start = time.time()
         xssfy(link, PAYLOADS)
+        end = time.time()
+        print(end - start)
+        print link
 
 driver.close()
